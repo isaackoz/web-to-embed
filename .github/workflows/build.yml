@@ -32,7 +32,11 @@ jobs:
         GOOS: ${{ matrix.goos }}
         GOARCH: ${{ matrix.goarch }}
       run: |
-        go build -o build/${{ matrix.goos }}-${{ matrix.goarch }}/myapp
+          output_name="web-to-embed"
+          if [ "$GOOS" = "windows" ]; then
+            output_name="${output_name}.exe"
+          fi
+          go build -o build/${GOOS}-${GOARCH}/${output_name}
 
     - name: Upload binaries
       uses: actions/upload-artifact@v3
