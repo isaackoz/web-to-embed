@@ -12,7 +12,6 @@ var InputDir string
 var OutputDir string
 var Progmem bool
 
-// convertCmd represents the convert command
 var convertCmd = &cobra.Command{
 	Use:   "convert",
 	Short: "Convert static web assets into embeddable C++ code",
@@ -24,7 +23,7 @@ var convertCmd = &cobra.Command{
 			return
 		}
 
-		// Convert to a header
+		// generate a cpp header file containing all assets
 		err = generateFile.Generate(assets, generateFile.Options{OutputDir: OutputDir, Progmem: Progmem})
 		if err != nil {
 			panic(err)
