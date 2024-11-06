@@ -38,7 +38,7 @@ jobs:
           if [ "$GOOS" = "windows" ]; then
             output_name="${output_name}.exe"
           fi
-          go build -o build/${GOOS}-${GOARCH} ${output_name}
+          go build -o build/${GOOS}-${GOARCH}/ ${output_name}
 
     - name: Upload binaries
       uses: actions/upload-artifact@v3
