@@ -38,12 +38,12 @@ jobs:
           if [ "$GOOS" = "windows" ]; then
             output_name="${output_name}.exe"
           fi
-          go build -o build/${GOOS}-${GOARCH}/${output_name}
+          go build -o build/${GOOS}-${GOARCH} ${output_name}
 
     - name: Upload binaries
       uses: actions/upload-artifact@v3
       with:
-        name: binaries-${{ matrix.goos }}-${{ matrix.goarch }}
+        name: binaries-${{ matrix.goos }}-${{ matrix.goarch }}*
         path: build/${{ matrix.goos }}-${{ matrix.goarch }}/web-to-embed
   release:
       needs: build
