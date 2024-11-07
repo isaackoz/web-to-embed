@@ -111,3 +111,11 @@ func CompressFileContent(contents []byte) ([]byte, int64, error) {
 
 	return compressedData, compressedSize, nil
 }
+
+func GetTotalSizeOfAssets(assets []Asset) int64 {
+	var totalSize int64
+	for _, asset := range assets {
+		totalSize += asset.Size
+	}
+	return totalSize
+}

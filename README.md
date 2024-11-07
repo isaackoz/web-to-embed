@@ -14,4 +14,16 @@ Convert static web assets into embeddable C++ code
 | `--progmem` | Include `PROGMEM` keyword (only applicable to Arduino) | `false` | `false` | boolean |
 
 ## Building
-todo
+
+
+### Windows
+1. `set GOOS=windows`
+2. `set GOARCH=amd64`
+3. `go build -o ./bin/` (don't forget trailing slash)
+
+### Linux
+1. `go build -o ./bin/`
+
+
+## Usage With Frameworks
+Check out `/examples`
